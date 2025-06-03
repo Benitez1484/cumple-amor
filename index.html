@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Claudia! 🎉</title>
+    <style>
+        /* Importación de fuentes */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&family=Pacifico&display=swap');
+
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Confeti animado */
+        .confeti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #f39c12;
+            animation: caerConfeti 3s infinite linear;
+            z-index: 1;
+        }
+
+        .confeti:nth-child(1) { left: 10%; animation-delay: 0s; background: #e74c3c; }
+        .confeti:nth-child(2) { left: 20%; animation-delay: 0.5s; background: #3498db; }
+        .confeti:nth-child(3) { left: 30%; animation-delay: 1s; background: #2ecc71; }
+        .confeti:nth-child(4) { left: 40%; animation-delay: 1.5s; background: #f39c12; }
+        .confeti:nth-child(5) { left: 50%; animation-delay: 2s; background: #9b59b6; }
+        .confeti:nth-child(6) { left: 60%; animation-delay: 0.3s; background: #e67e22; }
+        .confeti:nth-child(7) { left: 70%; animation-delay: 0.8s; background: #e91e63; }
+        .confeti:nth-child(8) { left: 80%; animation-delay: 1.3s; background: #00bcd4; }
+        .confeti:nth-child(9) { left: 90%; animation-delay: 1.8s; background: #8bc34a; }
+
+        @keyframes caerConfeti {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Globos flotantes */
+        .globo {
+            position: fixed;
+            width: 60px;
+            height: 80px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flotar 4s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .globo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 40px;
+            background: #333;
+        }
+
+        .globo1 {
+            background: #ff6b6b;
+            top: 20%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .globo2 {
+            background: #4ecdc4;
+            top: 30%;
+            right: 5%;
+            animation-delay: 1s;
+        }
+
+        .globo3 {
+            background: #ffe66d;
+            top: 60%;
+            left: 3%;
+            animation-delay: 2s;
+        }
+
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Título principal */
+        .titulo-principal {
+            text-align: center;
+            margin: 30px 0 50px 0;
+        }
+
+        .feliz-cumpleanos {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.5rem;
+            color: #fff;
+            text-shadow: 3px 3px 0px #ff6b6b, 6px 6px 0px #4ecdc4;
+            margin-bottom: 10px;
+            animation: brillar 2s ease-in-out infinite alternate;
+        }
+
+        .nombre-cumpleanera {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #ffe66d;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            animation: danzar 3s ease-in-out infinite;
+        }
+
+        @keyframes brillar {
+            from { text-shadow: 3px 3px 0px #ff6b6b, 6px 6px 0px #4ecdc4; }
+            to { text-shadow: 3px 3px 20px #ff6b6b, 6px 6px 20px #4ecdc4; }
+        }
+
+        @keyframes danzar {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.05) rotate(1deg); }
+            75% { transform: scale(1.05) rotate(-1deg); }
+        }
+
+        /* Contenedor de la foto */
+        .foto-container {
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .foto-frame {
+            display: inline-block;
+            padding: 15px;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef, #ff9a9e);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: rotate(-2deg);
+            animation: frameGlow 3s ease-in-out infinite alternate;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .foto-frame::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #ffe66d, #ff6b6b);
+            border-radius: 22px;
+            z-index: -1;
+        }
+
+        .foto {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .foto-placeholder {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 15px;
+            border: 3px solid #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+            line-height: 1.4;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @keyframes frameGlow {
+            from { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+            to { box-shadow: 0 15px 40px rgba(255,107,107,0.4), 0 15px 40px rgba(78,205,196,0.4); }
+        }
+
+        /* Corazones flotantes */
+        .corazon {
+            position: absolute;
+            color: #ff6b6b;
+            font-size: 20px;
+            animation: floatHeart 4s ease-in-out infinite;
+        }
+
+        .corazon1 { top: 10%; left: 15%; animation-delay: 0s; }
+        .corazon2 { top: 20%; right: 15%; animation-delay: 1s; }
+        .corazon3 { bottom: 30%; left: 10%; animation-delay: 2s; }
+        .corazon4 { bottom: 20%; right: 20%; animation-delay: 3s; }
+
+        @keyframes floatHeart {
+            0%, 100% { transform: translateY(0px) scale(1); opacity: 0.7; }
+            50% { transform: translateY(-15px) scale(1.2); opacity: 1; }
+        }
+
+        /* Mensaje de cumpleaños */
+        .mensaje {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mensaje::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef, #ff9a9e);
+            border-radius: 22px;
+            z-index: -1;
+        }
+
+        .mensaje h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #764ba2;
+            margin-bottom: 20px;
+        }
+
+        .mensaje p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .mensaje .firma {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #667eea;
+            margin-top: 20px;
+        }
+
+        /* Efectos especiales */
+        .estrella {
+            position: fixed;
+            color: #ffe66d;
+            font-size: 16px;
+            animation: twinkle 2s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .estrella1 { top: 15%; left: 25%; animation-delay: 0s; }
+        .estrella2 { top: 25%; right: 30%; animation-delay: 0.5s; }
+        .estrella3 { bottom: 40%; left: 20%; animation-delay: 1s; }
+        .estrella4 { bottom: 30%; right: 25%; animation-delay: 1.5s; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .feliz-cumpleanos {
+                font-size: 2.5rem;
+            }
+            
+            .nombre-cumpleanera {
+                font-size: 3rem;
+            }
+            
+            .foto, .foto-placeholder {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .mensaje {
+                padding: 20px;
+                margin: 20px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feliz-cumpleanos {
+                font-size: 2rem;
+            }
+            
+            .nombre-cumpleanera {
+                font-size: 2.5rem;
+            }
+            
+            .foto, .foto-placeholder {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Confeti -->
+    <div class="confeti"></div>
+    <div class="confeti"></div>
+    <div class="confeti"></div>
+    <div class="confeti"></div>
+    <div class="confeti"></div>
+    <div class="confeti"></div>
+    <div class="confeti"></div>
+    <div class="confeti"></div>
+    <div class="confeti"></div>
+
+    <!-- Globos -->
+    <div class="globo globo1"></div>
+    <div class="globo globo2"></div>
+    <div class="globo globo3"></div>
+
+    <!-- Estrellas -->
+    <div class="estrella estrella1">✨</div>
+    <div class="estrella estrella2">⭐</div>
+    <div class="estrella estrella3">✨</div>
+    <div class="estrella estrella4">⭐</div>
+
+    <!-- Corazones -->
+    <div class="corazon corazon1">💖</div>
+    <div class="corazon corazon2">💕</div>
+    <div class="corazon corazon3">💖</div>
+    <div class="corazon corazon4">💕</div>
+
+    <div class="container">
+        <!-- Título principal -->
+        <div class="titulo-principal">
+            <h1 class="feliz-cumpleanos">¡Feliz Cumpleaños!</h1>
+            <h2 class="nombre-cumpleanera">Claudia Cumes</h2>
+        </div>
+
+        <!-- Foto especial -->
+        <div class="foto-container">
+            <div class="foto-frame">
+                <!-- Tu foto especial juntos -->
+                <img src="ss.jpg" alt="Claudia y Benítez" class="foto">
+            </div>
+        </div>
+
+        <!-- Mensaje especial -->
+        <div class="mensaje">
+            <h2>Mi amor, en tu día especial</h2>
+            <p>Hoy celebro no solo el día en que naciste, sino también la luz que trajiste a mi vida. Cada día a tu lado es un regalo, pero hoy es aún más especial porque es TU día.</p>
+            
+            <p>Gracias por ser esa persona extraordinaria que llena mis días de amor, risas y momentos únicos. Tu sonrisa es el mejor regalo que puedo recibir cada mañana.</p>
+            
+            <p>En este nuevo año de vida, deseo que todos tus sueños se hagan realidad, que la felicidad te acompañe siempre, y que nuestro amor siga creciendo cada día más fuerte.</p>
+            
+            <p>¡Que este cumpleaños sea el inicio de un año lleno de aventuras, alegrías y momentos inolvidables juntos!</p>
+            
+            <p class="firma">Con todo mi amor, Benítez 💕</p>
+        </div>
+    </div>
+
+    <script>
+        // Efecto de aparición
+        document.addEventListener('DOMContentLoaded', function() {
+            const titulo = document.querySelector('.titulo-principal');
+            const foto = document.querySelector('.foto-container');
+            const mensaje = document.querySelector('.mensaje');
+            
+            setTimeout(() => {
+                titulo.style.opacity = '0';
+                titulo.style.transform = 'translateY(-50px)';
+                titulo.style.transition = 'all 1s ease';
+                titulo.style.opacity = '1';
+                titulo.style.transform = 'translateY(0)';
+            }, 500);
+            
+            setTimeout(() => {
+                foto.style.opacity = '0';
+                foto.style.transform = 'scale(0.8)';
+                foto.style.transition = 'all 1s ease';
+                foto.style.opacity = '1';
+                foto.style.transform = 'scale(1)';
+            }, 1000);
+            
+            setTimeout(() => {
+                mensaje.style.opacity = '0';
+                mensaje.style.transform = 'translateY(50px)';
+                mensaje.style.transition = 'all 1s ease';
+                mensaje.style.opacity = '1';
+                mensaje.style.transform = 'translateY(0)';
+            }, 1500);
+        });
+
+        // Crear más confeti dinámicamente
+        function crearConfeti() {
+            const confeti = document.createElement('div');
+            confeti.className = 'confeti';
+            confeti.style.left = Math.random() * 100 + '%';
+            confeti.style.backgroundColor = ['#e74c3c', '#3498db', '#2ecc71', '#f39c12', '#9b59b6', '#e67e22'][Math.floor(Math.random() * 6)];
+            document.body.appendChild(confeti);
+            
+            setTimeout(() => {
+                confeti.remove();
+            }, 3000);
+        }
+
+        // Crear confeti cada 2 segundos
+        setInterval(crearConfeti, 2000);
+    </script>
+</body>
+</html>
